@@ -11,15 +11,17 @@ const lookup = {
 };
 
 function rot13(encodedStr){
-   let decodedArr = []; // Your Result goes here
-  // Only change code below this lin
-	for(let i=0;i<encodedStr.length;i++){
-		let decode = encodedStr[i];
-		let decodeChar = lookup[decode] ;
-		encodedStr.push(decodeChar);
-	}
-	
-  return decodedArr.join('');//return decodedArr
+const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+const rot13 = "NOPQRSTUVWXYZABCDEFGHIJKLMnoprestuvwxyzabcdefghijklm";
+	const regex = /[a-zA-Z]/g;
+	const decodedStr = encodedStr.replace(regex,(char)=>{
+		const index = rot13.indexOf(char);
+		if(index===-1){
+			return char;
+		}
+		return alphabet[index];
+	})
+  return decodedStr//return decodedArr
 }
 
 // You can test your code by running the above function and printing it to console by pressing the run button at the top. To run it with input 36, uncomment the following line
