@@ -15,7 +15,7 @@ function rot13(encodedStr){
   // Only change code below this lin
 	for(let i=0;i<encodedStr.length;i++){
 		let decode = encodedStr[i];
-		let decodeChar = lookup[decode] || decode;
+		let decodeChar = lookup[decode] ;
 		encodedStr.push(decodeChar);
 	}
 	
