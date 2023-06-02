@@ -14,15 +14,11 @@ function rot13(encodedStr){
    let decodedArr = []; // Your Result goes here
   // Only change code below this lin
 	for(let i=0;i<encodedStr.length;i++){
-		let ch = encodedStr.charAt(i);
-		for(let key in lookup){
-			if(ch==key){
-				decodedArr.push(lookup[key]);
-			}
-		}
+		let decode = encodedStr[i];
+		let decodeChar = lookup[decode] || decode;
+		encodedStr.push(decodeChar);
 	}
 	
-
   return decodedArr;//return decodedArr
 }
 
